@@ -1,13 +1,13 @@
 <!-- SPDX-License-Identifier: Apache-2.0 OR MIT -->
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/sebastienrousseau/jspassgen/master/.github/assets/logo.svg" alt="jspassgen logo" width="128" />
+  <img src="https://raw.githubusercontent.com/sebastienrousseau/jspassgen/main/.github/assets/logo.svg" alt="jspassgen logo" width="128" />
 </p>
 
 <h1 align="center">jspassgen-cli</h1>
 
 <p align="center">
-  The jspassgen command line: strong passwords generated on your machine from the platform CSPRNG, with all generation done by the @sebastienrousseau/jspassgen library.
+  The jspassgen command line: it generates passwords on your machine from the platform CSPRNG, with all generation done by the @sebastienrousseau/jspassgen library.
 </p>
 
 <p align="center">
@@ -30,18 +30,18 @@
 **Getting started**
 
 - [Install](#install): from a checkout; not on npm yet
-- [Requirements](#requirements): Node.js floor, platforms
+- [Requirements](#requirements): Node.js floor, platforms, dependencies
 - [Quick Start](#quick-start): print the version and generate a password
 
 **The jspassgen ecosystem**
 
-- [The jspassgen ecosystem](#the-jspassgen-ecosystem): the core library, its tools and native SDKs, released in lockstep
+- [The jspassgen ecosystem](#the-jspassgen-ecosystem): the core library, its tools, native SDKs and site
 
 **Library reference**
 
 - [Capabilities at a glance](#capabilities-at-a-glance): what the bin does today, and what it does not yet
 - [Ecosystem comparison](#ecosystem-comparison): this bin against the one inside jspassgen
-- [Benchmarks](#benchmarks): none yet, and why
+- [Benchmarks](#benchmarks): none, and why
 - [Features](#features): the current surface
 - [Configuration](#configuration): the `generate` options
 - [Examples](#examples): command lines
@@ -57,6 +57,14 @@
 
 ---
 
+## Development version
+
+This branch prepares unreleased v0.0.22, the first version of
+jspassgen-cli. It is not on npm yet; run it from a checkout until it
+ships with the suite's first lockstep release.
+
+---
+
 ## Install
 
 ### As a JavaScript library
@@ -66,12 +74,10 @@ programs should depend on
 [`@sebastienrousseau/jspassgen`](https://www.npmjs.com/package/@sebastienrousseau/jspassgen)
 directly.
 
-`@sebastienrousseau/jspassgen-cli` is **not on npm yet**. It is a planned
-member of the jspassgen suite and will first ship at the suite's first
-lockstep version (planned: 0.0.22). Until then, `package.json` is marked
-`private` and the bin runs from a checkout:
+`@sebastienrousseau/jspassgen-cli` is not on npm yet, and `package.json`
+is marked `private`. Run the bin from a checkout:
 
-```sh
+```bash
 git clone https://github.com/sebastienrousseau/jspassgen-cli.git
 cd jspassgen-cli
 npm ci
@@ -82,17 +88,18 @@ node bin/jspassgen.js --version
 
 ## Requirements
 
-- Node.js 22 or newer (`engines` in `package.json`). CI runs the tests on
-  Node.js 22 and 24 on Ubuntu 24.04. The code is plain ESM JavaScript
-  with no native modules.
-- Run-time dependencies: `@sebastienrousseau/jspassgen` (pinned to
-  exactly 0.0.20, its latest published release) and `commander`.
+- Node.js 22 or newer (`engines` in `package.json`).
+- CI runs the tests on Node.js 22 and 24 on Ubuntu 24.04. The code is
+  plain ESM JavaScript with no native modules.
+- Run-time dependencies: `@sebastienrousseau/jspassgen`, pinned to
+  exactly 0.0.20, and `commander`. The core's latest npm release is
+  0.0.21; this branch has not moved to it yet.
 
 ---
 
 ## Quick Start
 
-```sh
+```bash
 node bin/jspassgen.js --version
 node bin/jspassgen.js generate
 node bin/jspassgen.js generate --length 12 --iteration 3 --separator .
@@ -101,8 +108,8 @@ node bin/jspassgen.js generate --length 12 --iteration 3 --separator .
 `--version` prints this package's version. `generate` prints one strong
 password: `--iteration` chunks of `--length` base64 characters (16 and 4
 by default), joined by `--separator` (`-` by default). The characters
-come from the library's strong generator over Node.js `crypto`; the
-CLI only parses arguments and prints the result. An option the library
+come from the library's strong generator over Node.js `crypto`; the CLI
+only parses arguments and prints the result. An option the library
 rejects (for example `--length 0`) prints the library's message on
 standard error and exits with status 1.
 
@@ -110,22 +117,32 @@ standard error and exits with status 1.
 
 ## The jspassgen ecosystem
 
-jspassgen is one core library and the tools and SDKs around it. Every
-member is listed in
-[`docs/ecosystem.json`](https://github.com/sebastienrousseau/jspassgen/blob/master/docs/ecosystem.json)
-and, from the first suite release, every member ships the same version
-([ADR 0001](https://github.com/sebastienrousseau/jspassgen/blob/master/docs/adr/0001-ecosystem-lockstep.md)).
+jspassgen is one core library and the tools, SDKs and site around it.
+Every member is listed in
+[`docs/ecosystem.json`](https://github.com/sebastienrousseau/jspassgen/blob/main/docs/ecosystem.json)
+and, from the suite's first lockstep release, every member ships the same
+version ([ADR 0001](https://github.com/sebastienrousseau/jspassgen/blob/main/docs/adr/0001-ecosystem-lockstep.md)).
 The JavaScript tools depend on the core and add no generation logic of
-their own; the SDKs are native ports proven by a conformance kit.
+their own; each SDK is a native port that is checked against the core's
+conformance kit as its generators land.
 
 | Component | Purpose | Use case |
 | :--- | :--- | :--- |
-| [`jspassgen`][core] | Core library: password and passphrase generation, entropy accounting, the current CLI and web UI | Programs that generate secrets; the source every other member follows |
-| **`jspassgen-cli`** | This command line, built on the core (planned) | Generating passwords in a terminal or a script |
-| `jspassgen-mcp` | Local stdio MCP server (planned) | AI agents that need a generated secret |
-| `jspassgen-lsp` | Language server for weak literal secrets (planned) | Editors checking configuration and `.env` files |
-| `jspassgen-sdk-python`, `-rust`, `-java`, `-dotnet`, `-cpp` | Native ports of the core (planned) | Other languages, same rules |
-| [jspassgen.com][site] | Product site | Evaluating the suite |
+| [`jspassgen`](https://github.com/sebastienrousseau/jspassgen) | Password and passphrase core, Node.js library, CLI, web UI and workers; source of the conformance kit | Programs that generate secrets |
+| **`jspassgen-cli`** | Command-line generator built on the core | Passwords in a terminal or a script |
+| [`jspassgen-mcp`](https://github.com/sebastienrousseau/jspassgen-mcp) | Local stdio MCP server | AI agents that need a generated secret |
+| [`jspassgen-lsp`](https://github.com/sebastienrousseau/jspassgen-lsp) | Language server for weak literal secrets | Editors checking configuration and `.env` files |
+| [`jspassgen-sdk-python`](https://github.com/sebastienrousseau/jspassgen-sdk-python) | Native port on the `secrets` module | Python programs |
+| [`jspassgen-sdk-rust`](https://github.com/sebastienrousseau/jspassgen-sdk-rust) | Native port on the OS CSPRNG | Rust programs |
+| [`jspassgen-sdk-java`](https://github.com/sebastienrousseau/jspassgen-sdk-java) | Native port on `SecureRandom` | JVM programs |
+| [`jspassgen-sdk-dotnet`](https://github.com/sebastienrousseau/jspassgen-sdk-dotnet) | Native port on `RandomNumberGenerator` | .NET programs |
+| [`jspassgen-sdk-cpp`](https://github.com/sebastienrousseau/jspassgen-sdk-cpp) | Native C++17 port on the OS CSPRNG | C++ programs |
+| [`jspassgen.github.io`](https://github.com/sebastienrousseau/jspassgen.github.io) | Source of [jspassgen.com](https://jspassgen.com) | Evaluating the suite |
+
+Only `@sebastienrousseau/jspassgen` is on a package registry so far
+(0.0.21 on npm). The table gives each member's purpose; the other members
+are early, each README's Capabilities at a glance says what works today,
+and they first publish with the suite's first lockstep release.
 
 ---
 
@@ -151,28 +168,29 @@ becomes a shim that names this package, and is removed one release later
 
 | Project | Password types | Published on npm | Generation code |
 | :--- | :---: | :---: | :---: |
-| **jspassgen-cli** | **strong only, for now** | **Not yet** | **None; calls the core** |
-| `jspassgen` bin in `@sebastienrousseau/jspassgen` | All eight | Yes (0.0.20) | In the same package |
+| **jspassgen-cli** | **Strong only, for now** | **Not yet** | **None; calls the core** |
+| `jspassgen` bin in `@sebastienrousseau/jspassgen` | All eight | Yes (0.0.21) | In the same package |
 
 ---
 
 ## Benchmarks
 
-None. The CLI does no generation of its own, so a benchmark here would
-measure Node.js start-up and the core library; the core's benchmarks
-live in [jspassgen][core].
+None are published. The CLI does no generation of its own, so a
+benchmark here would measure Node.js start-up and the core library; the
+core's benchmarks live in
+[jspassgen](https://github.com/sebastienrousseau/jspassgen).
 
 ---
 
 ## Features
 
-- **One command, `generate`**, for a strong password from the library's
+- One command, `generate`, prints a strong password from the library's
   `strong` type, with `--length`, `--iteration` and `--separator`.
-- **`--version`** prints the version from `package.json`.
-- **Strict integers.** `--length` and `--iteration` accept whole numbers
-  only; anything else is a usage error before the library is called.
-- **Library errors pass through.** Validation (lengths from 1 to 1024,
-  at least one chunk) is the library's, and so are its messages.
+- `--version` prints the version from `package.json`.
+- `--length` and `--iteration` accept whole numbers only; anything else
+  is a usage error before the library is called.
+- Validation (lengths from 1 to 1024, at least one chunk) is the
+  library's, and so are its error messages.
 
 ---
 
@@ -192,7 +210,7 @@ The CLI reads no configuration file and no environment variable.
 
 ## Examples
 
-```sh
+```bash
 # A 64-character password in four chunks: the defaults
 node bin/jspassgen.js generate
 
@@ -207,12 +225,12 @@ secret="$(node bin/jspassgen.js generate)"
 
 ## When not to use jspassgen-cli
 
-- **You need anything but a strong password today.** Passphrases,
-  memorable passwords and the other types are in the jspassgen bin until
-  the CLI moves here.
-- **You want to install from npm.** This package is not published yet;
+- You need anything but a strong password today. Passphrases, memorable
+  passwords and the other types are in the jspassgen bin until the CLI
+  moves here.
+- You want to install from npm. This package is not published yet;
   `npx @sebastienrousseau/jspassgen` runs the current CLI.
-- **You are writing a program.** Depend on `@sebastienrousseau/jspassgen`
+- You are writing a program. Depend on `@sebastienrousseau/jspassgen`
   and call its API; spawning a CLI to get a secret adds a process and a
   pipe for nothing.
 
@@ -220,14 +238,17 @@ secret="$(node bin/jspassgen.js generate)"
 
 ## Development
 
-```sh
+```bash
 mise install   # Node.js 24 (mise.toml)
 make check     # npm ci, eslint, prettier, the tests at 100% coverage
+make audit     # npm audit over every locked dependency
+make demo      # re-render .github/demo.gif with vhs
 ```
 
-`make check` is the local gate and what CI runs on Node.js 22 and 24.
-`make audit` runs `npm audit`, and `make demo` re-renders the GIF above
-with [VHS](https://github.com/charmbracelet/vhs).
+`make check` is the local gate. CI runs the same targets, the tests on
+Node.js 22 and 24, plus shellcheck, CodeQL, the DCO check, markdownlint,
+the README template check, codespell, REUSE and offline link checks.
+The demo needs [VHS](https://github.com/charmbracelet/vhs).
 [`DEVELOPMENT.md`](DEVELOPMENT.md) maps every CI gate to its command.
 
 ---
@@ -248,13 +269,14 @@ Report vulnerabilities according to [`SECURITY.md`](SECURITY.md).
 
 ## Documentation
 
-[Developer docs](DEVELOPMENT.md) ·
-[Family map](#the-jspassgen-ecosystem) ·
-[Ecosystem ADR](https://github.com/sebastienrousseau/jspassgen/blob/master/docs/adr/0001-ecosystem-lockstep.md)
-
-Also: [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md) ·
-[Governance](GOVERNANCE.md) · [Support](SUPPORT.md) ·
-[Security policy](SECURITY.md) · [Agent rules](AGENTS.md)
+- [Developer documentation](DEVELOPMENT.md)
+- [Changelog](CHANGELOG.md)
+- [Contributing](CONTRIBUTING.md)
+- [Governance](GOVERNANCE.md)
+- [Support](SUPPORT.md)
+- [Security policy](SECURITY.md)
+- [Agent rules](AGENTS.md)
+- [Ecosystem ADR](https://github.com/sebastienrousseau/jspassgen/blob/main/docs/adr/0001-ecosystem-lockstep.md)
 
 No user manual or API reference is published yet: the package has one
 command and no API.
@@ -263,28 +285,21 @@ command and no API.
 
 ## Stability guarantees
 
-The project is pre-1.0 and versions advance in `0.0.1` steps, in
-lockstep with the jspassgen suite from its first release. The breaking
-axis is the command line: a removed or renamed command or option, a
-changed default, or a different output format for the same options is
-breaking and the changelog calls it out. Passwords are random, so their
-values are not part of the contract; their shape (alphabet, chunk count
-and length, separator) is. The core version is pinned exactly, so a
-release of this package always runs the generator it was tested with.
-The Node.js floor is 22 (`engines`); it is raised only in a new version,
-recorded in the changelog.
+- The project is pre-1.0 and versions advance in `0.0.1` steps, in
+  lockstep with the jspassgen suite from its first release.
+- The breaking axis is the command line. A removed or renamed command or
+  option, a changed default, or a different output format for the same
+  options is breaking, and the changelog calls it out.
+- Passwords are random, so their values are not part of the contract;
+  their shape (alphabet, chunk count and length, separator) is.
+- The core version is pinned exactly, so a release of this package
+  always runs the generator it was tested with.
+- The Node.js floor is 22 (`engines`). It is raised only in a new
+  version, recorded in the changelog.
 
 ---
 
 ## License
 
-This project is dual-licensed under either:
-
-- Apache License, Version 2.0 ([`LICENSE-APACHE`](LICENSE-APACHE) or <https://www.apache.org/licenses/LICENSE-2.0>)
-- MIT License ([`LICENSE-MIT`](LICENSE-MIT) or <https://opensource.org/licenses/MIT>)
-
-at your option. Dependencies keep their own licences:
-`@sebastienrousseau/jspassgen` (Apache-2.0 OR MIT) and `commander` (MIT).
-
-[core]: https://github.com/sebastienrousseau/jspassgen
-[site]: https://jspassgen.com
+Licensed under either [Apache License 2.0](LICENSE-APACHE) or
+[MIT](LICENSE-MIT), at your option.
