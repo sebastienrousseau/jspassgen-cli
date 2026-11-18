@@ -4,19 +4,18 @@
 
 ## Read first
 
-- [README.md](README.md): install from a checkout, the `generate`
-  options and what is not available yet.
+- [README.md](README.md): install, the `generate` options and what is
+  not available yet.
 - [DEVELOPMENT.md](DEVELOPMENT.md): setup, testing and every CI gate.
 
 ## Supported versions
 
-Nothing is released yet; `main` is supported. From the first release,
-the latest `0.0.x` is supported and older ones are not. The CLI follows
-the jspassgen suite's version.
+The latest release, `0.0.22`, and `main` are supported; older `0.0.x`
+versions are not. The CLI follows the jspassgen suite's version.
 
 | Version | Status | Supported |
 | :--- | :--- | :--- |
-| `0.0.22` | Planned, unreleased | Not released |
+| `0.0.22` | Latest release | Yes |
 | `main` | In development | Yes |
 
 ## Questions and bugs

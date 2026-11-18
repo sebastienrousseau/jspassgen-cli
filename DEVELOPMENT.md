@@ -48,9 +48,28 @@ written, the highest per-function value was 6.75.
 
 ## Release model
 
-No release workflow exists yet, and `package.json` is `private`. The
-first release is the suite's first lockstep version (planned: 0.0.22).
-It will follow the suite's release rules: a signed annotated tag
-`v<version>` with the message `jspassgen-cli v<version>`, a GitHub
-release titled `jspassgen-cli <version>` with a `SHA256SUMS` asset, and
-npm trusted publishing from a protected environment.
+`.github/workflows/release.yml` releases a pushed `v<version>` tag. The
+first release is the suite's first lockstep version, 0.0.22.
+
+1. On `feat/v<version>`: move the version in `package.json` and its
+   restatements, and date the `CHANGELOG.md` heading. Merge the release
+   pull request into `main` once CI is green.
+2. Tag `main` with a signed annotated tag, check it with
+   `git verify-tag v<version>` (`KEYS.asc`), and push it:
+   `git tag -s v<version> -m "jspassgen-cli v<version>"`.
+3. The `check` job refuses a tag that is not annotated, not signed, not
+   on the checked-out commit, or whose message or version does not match
+   `package.json`. It runs `make check` and `make audit`, packs the
+   tarball with `npm pack`, and writes `SHA256SUMS`. CI cannot verify the
+   signature itself; step 2 does.
+4. The `publish-npm` job waits for a maintainer to approve the `npm`
+   environment, then publishes that tarball to npmjs with provenance
+   through npm trusted publishing; no npm token is stored. A version
+   already on npmjs is skipped.
+5. The `github-release` job drafts the GitHub release
+   `jspassgen-cli <version>` with the tarball and `SHA256SUMS`. The maintainer
+   writes the Highlights and publishes the draft.
+
+Trusted publishing is configured on npmjs per package: the trusted
+publisher names this repository, `release.yml` and the `npm`
+environment.

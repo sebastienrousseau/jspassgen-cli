@@ -4,14 +4,13 @@
 
 ## Supported versions
 
-Nothing is released yet. The first version is planned as `0.0.22`, the
-jspassgen suite's first lockstep version. While pre-`1.0`, the latest
-released `0.0.x` will receive security fixes; older `0.0.x` versions
-will not.
+The latest release is `0.0.22`, the jspassgen suite's first lockstep
+version. While pre-`1.0`, the latest released `0.0.x` receives security
+fixes; older `0.0.x` versions do not.
 
 | Version | Status | Receives security fixes? |
 | :--- | :--- | :--- |
-| `0.0.22` | Planned, unreleased | Not released |
+| `0.0.22` | Latest release | Yes |
 | `main` | In development | Yes |
 
 ## Reporting a vulnerability
