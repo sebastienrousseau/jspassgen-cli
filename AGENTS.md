@@ -22,8 +22,7 @@ as well, and the workspace rules in `~/Code/AGENTS.md`.
   and writes only to standard output and standard error;
   `test/no-network.test.js` guards `bin/` and `src/`.
 - **Pin the core exactly.** `@sebastienrousseau/jspassgen` is pinned to
-  one version (0.0.21, its latest release, until the suite's first
-  lockstep version, then the suite version).
+  one version, the suite version (now 0.0.22).
 - **Version.** `0.0.x`, moving by exactly `0.0.1`, in lockstep with the
   jspassgen suite; never propose a jump. The version lives in
   `package.json` and is restated in `package-lock.json`, `CITATION.cff`,

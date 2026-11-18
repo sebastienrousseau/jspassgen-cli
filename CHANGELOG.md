@@ -6,16 +6,15 @@ All notable changes to this project are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 advance in `0.0.1` steps in lockstep with the jspassgen suite.
 
-## [0.0.22] - Unreleased
+## [0.0.22] - 2026-11-18
 
-The planned first version, at the jspassgen suite's first lockstep
-version. Not published.
+The first version, at the jspassgen suite's first lockstep version.
 
 ### Added
 
 - The `jspassgen` bin: `--version`, and `generate` for a strong password
   (`--length`, `--iteration`, `--separator`) from
-  `@sebastienrousseau/jspassgen` 0.0.21, pinned exactly.
+  `@sebastienrousseau/jspassgen` 0.0.22, pinned exactly.
 - Tests that run the bin, at 100% coverage, and a test that `bin/` and
   `src/` import no network module.
 - The repository standard: community files, REUSE licensing, the

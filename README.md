@@ -12,7 +12,7 @@
 
 <p align="center">
   <a href="https://github.com/sebastienrousseau/jspassgen-cli/actions"><img src="https://img.shields.io/github/actions/workflow/status/sebastienrousseau/jspassgen-cli/ci.yml?style=for-the-badge&logo=github" alt="Build" height="28" /></a>
-  <a href="https://www.npmjs.com/package/@sebastienrousseau/jspassgen-cli"><img src="https://img.shields.io/badge/npm-not%20published%20yet-lightgrey?style=for-the-badge&color=fc8d62&logo=npm" alt="npm: not published yet" height="28" /></a>
+  <a href="https://www.npmjs.com/package/@sebastienrousseau/jspassgen-cli"><img src="https://img.shields.io/npm/v/@sebastienrousseau/jspassgen-cli?style=for-the-badge&color=fc8d62&logo=npm" alt="Registry" height="28" /></a>
   <a href="https://github.com/sebastienrousseau/jspassgen-cli/blob/main/DEVELOPMENT.md"><img src="https://img.shields.io/badge/docs-development-blue?style=for-the-badge&labelColor=555555&logo=readthedocs" alt="Docs" height="28" /></a>
   <a href="https://scorecard.dev/viewer/?uri=github.com/sebastienrousseau/jspassgen-cli"><img src="https://img.shields.io/ossf-scorecard/github.com/sebastienrousseau/jspassgen-cli?style=for-the-badge&label=OpenSSF%20Scorecard&logo=openssf" alt="OpenSSF Scorecard" height="28" /></a>
   <a href="LICENSE-APACHE"><img src="https://img.shields.io/badge/license-Apache--2.0%20OR%20MIT-blue.svg?style=for-the-badge" alt="License: Apache-2.0 OR MIT" height="28" /></a>
@@ -29,7 +29,7 @@
 
 **Getting started**
 
-- [Install](#install): from a checkout; not on npm yet
+- [Install](#install): global install, `npx`, or a checkout
 - [Requirements](#requirements): Node.js floor, platforms, dependencies
 - [Quick Start](#quick-start): print the version and generate a password
 
@@ -57,14 +57,6 @@
 
 ---
 
-## Development version
-
-This branch prepares unreleased v0.0.22, the first version of
-jspassgen-cli. It is not on npm yet; run it from a checkout until it
-ships with the suite's first lockstep release.
-
----
-
 ## Install
 
 ### As a JavaScript library
@@ -74,9 +66,20 @@ programs should depend on
 [`@sebastienrousseau/jspassgen`](https://www.npmjs.com/package/@sebastienrousseau/jspassgen)
 directly.
 
-`@sebastienrousseau/jspassgen-cli` is not on npm yet; it first
-publishes with the suite's first lockstep release. Run the bin from a
-checkout:
+### As a command line
+
+Install the `jspassgen` command globally, or run it once without
+installing:
+
+```bash
+npm install -g @sebastienrousseau/jspassgen-cli
+npx @sebastienrousseau/jspassgen-cli generate
+```
+
+`@sebastienrousseau/jspassgen` also installs a bin named `jspassgen`;
+install only one of the two globally.
+
+Run the bin from a checkout:
 
 ```bash
 git clone https://github.com/sebastienrousseau/jspassgen-cli.git
@@ -93,16 +96,16 @@ node bin/jspassgen.js --version
 - CI runs the tests on Node.js 22 and 24 on Ubuntu 24.04. The code is
   plain ESM JavaScript with no native modules.
 - Run-time dependencies: `@sebastienrousseau/jspassgen`, pinned to
-  exactly 0.0.21, the core's latest npm release, and `commander`.
+  exactly 0.0.22, the suite version, and `commander`.
 
 ---
 
 ## Quick Start
 
 ```bash
-node bin/jspassgen.js --version
-node bin/jspassgen.js generate
-node bin/jspassgen.js generate --length 12 --iteration 3 --separator .
+jspassgen --version
+jspassgen generate
+jspassgen generate --length 12 --iteration 3 --separator .
 ```
 
 `--version` prints this package's version. `generate` prints one strong
@@ -139,10 +142,11 @@ conformance kit as its generators land.
 | [`jspassgen-sdk-cpp`](https://github.com/sebastienrousseau/jspassgen-sdk-cpp) | Native C++17 port on the OS CSPRNG | C++ programs |
 | [`jspassgen.github.io`](https://github.com/sebastienrousseau/jspassgen.github.io) | Source of [jspassgen.com](https://jspassgen.com) | Evaluating the suite |
 
-Only `@sebastienrousseau/jspassgen` is on a package registry so far
-(0.0.21 on npm). The table gives each member's purpose; the other members
-are early, each README's Capabilities at a glance says what works today,
-and they first publish with the suite's first lockstep release.
+Every member ships at 0.0.22, the suite's first lockstep release: the
+core, CLI, MCP and LSP servers on npm, the Python, Rust, Java and .NET
+SDKs on PyPI, crates.io, Maven Central and NuGet, and the C++ SDK and
+the site as GitHub releases. The table gives each member's purpose, and
+each README's Capabilities at a glance says what works today.
 
 ---
 
@@ -155,7 +159,7 @@ and they first publish with the suite's first lockstep release.
 | Other password types | base64, memorable, diceware, quantum-resistant, honeyword, pronounceable, custom | Not available yet; in the jspassgen bin today |
 | Entropy and strength | Entropy report, strength analysis | Not available yet |
 | Presets, clipboard, interactive onboarding | The rest of jspassgen's `src/cli` | Not available yet; moves here in a later version |
-| Distribution | npm package, release archives, `SHA256SUMS` | Not available yet; the first release, 0.0.22, publishes the npm package with `SHA256SUMS` |
+| Distribution | npm package, release archives, `SHA256SUMS` | Available from 0.0.22: the npm package, and the GitHub release with the tarball and `SHA256SUMS` |
 
 ---
 
@@ -168,8 +172,8 @@ becomes a shim that names this package, and is removed one release later
 
 | Project | Password types | Published on npm | Generation code |
 | :--- | :---: | :---: | :---: |
-| **jspassgen-cli** | **Strong only, for now** | **Not yet** | **None; calls the core** |
-| `jspassgen` bin in `@sebastienrousseau/jspassgen` | All eight | Yes (0.0.21) | In the same package |
+| **jspassgen-cli** | **Strong only, for now** | **Yes (0.0.22)** | **None; calls the core** |
+| `jspassgen` bin in `@sebastienrousseau/jspassgen` | All eight | Yes (0.0.22) | In the same package |
 
 ---
 
@@ -212,13 +216,13 @@ The CLI reads no configuration file and no environment variable.
 
 ```bash
 # A 64-character password in four chunks: the defaults
-node bin/jspassgen.js generate
+jspassgen generate
 
 # One chunk of 32 characters, no separator needed
-node bin/jspassgen.js generate --length 32 --iteration 1
+jspassgen generate --length 32 --iteration 1
 
 # Into a shell variable, without echoing it
-secret="$(node bin/jspassgen.js generate)"
+secret="$(jspassgen generate)"
 ```
 
 ---
@@ -228,8 +232,6 @@ secret="$(node bin/jspassgen.js generate)"
 - You need anything but a strong password today. Passphrases, memorable
   passwords and the other types are in the jspassgen bin until the CLI
   moves here.
-- You want to install from npm. This package is not published yet;
-  `npx @sebastienrousseau/jspassgen` runs the current CLI.
 - You are writing a program. Depend on `@sebastienrousseau/jspassgen`
   and call its API; spawning a CLI to get a secret adds a process and a
   pipe for nothing.
