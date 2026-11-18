@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: Apache-2.0 OR MIT
+cff-version: 1.2.0
+message: "If you use jspassgen-cli in research or production write-ups, please cite it as below."
+type: software
+title: "jspassgen-cli: the command line of the jspassgen password generator suite"
+abstract: >-
+  A Node.js command line that generates strong passwords on the user's
+  machine from the platform CSPRNG, with all generation done by the
+  @sebastienrousseau/jspassgen library.
+authors:
+  - family-names: Rousseau
+    given-names: Sebastien
+version: "0.0.22"
+# Dual-licensed, at the user's option (LICENSE-APACHE, LICENSE-MIT).
+license:
+  - Apache-2.0
+  - MIT
+repository-code: "https://github.com/sebastienrousseau/jspassgen-cli"
+url: "https://jspassgen.com"
+keywords:
+  - password
+  - password-generator
+  - csprng
+  - cli
+  - JavaScript

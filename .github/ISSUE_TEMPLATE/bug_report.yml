@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: Apache-2.0 OR MIT
+name: Bug Report
+description: Report a reproducible problem in jspassgen-cli
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Issues are public. Never paste a password you use. Report
+        security problems privately, as SECURITY.md describes.
+  - type: input
+    id: version
+    attributes:
+      label: jspassgen-cli version or commit
+      placeholder: "jspassgen --version"
+    validations:
+      required: true
+  - type: input
+    id: toolchain
+    attributes:
+      label: Node.js version and operating system
+      placeholder: "Node.js 24.1.0, macOS 15"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened and what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Command and output
+      render: shell
+    validations:
+      required: true

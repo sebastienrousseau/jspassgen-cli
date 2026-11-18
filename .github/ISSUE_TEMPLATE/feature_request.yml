@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: Apache-2.0 OR MIT
+name: Feature Request
+description: Suggest an enhancement for jspassgen-cli
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The CLI adds no generation logic of its own: a new password type
+        or rule starts in https://github.com/sebastienrousseau/jspassgen.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+    validations:
+      required: true
+  - type: dropdown
+    id: breaking_change
+    attributes:
+      label: Breaking Change?
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
