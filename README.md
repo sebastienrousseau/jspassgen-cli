@@ -74,8 +74,9 @@ programs should depend on
 [`@sebastienrousseau/jspassgen`](https://www.npmjs.com/package/@sebastienrousseau/jspassgen)
 directly.
 
-`@sebastienrousseau/jspassgen-cli` is not on npm yet, and `package.json`
-is marked `private`. Run the bin from a checkout:
+`@sebastienrousseau/jspassgen-cli` is not on npm yet; it first
+publishes with the suite's first lockstep release. Run the bin from a
+checkout:
 
 ```bash
 git clone https://github.com/sebastienrousseau/jspassgen-cli.git
@@ -92,8 +93,7 @@ node bin/jspassgen.js --version
 - CI runs the tests on Node.js 22 and 24 on Ubuntu 24.04. The code is
   plain ESM JavaScript with no native modules.
 - Run-time dependencies: `@sebastienrousseau/jspassgen`, pinned to
-  exactly 0.0.20, and `commander`. The core's latest npm release is
-  0.0.21; this branch has not moved to it yet.
+  exactly 0.0.21, the core's latest npm release, and `commander`.
 
 ---
 

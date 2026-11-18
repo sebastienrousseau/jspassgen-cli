@@ -48,8 +48,8 @@ written, the highest per-function value was 6.75.
 
 ## Release model
 
-No release workflow exists yet, and `package.json` is `private`. The
-first release is the suite's first lockstep version (planned: 0.0.22).
+No release workflow exists yet. `package.json` is no longer `private`,
+ready for the first release. The first release is the suite's first lockstep version (planned: 0.0.22).
 It will follow the suite's release rules: a signed annotated tag
 `v<version>` with the message `jspassgen-cli v<version>`, a GitHub
 release titled `jspassgen-cli <version>` with a `SHA256SUMS` asset, and

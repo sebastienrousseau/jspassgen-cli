@@ -1,7 +1,6 @@
 {
   "name": "@sebastienrousseau/jspassgen-cli",
   "version": "0.0.22",
-  "private": true,
   "description": "Command-line password generator built on @sebastienrousseau/jspassgen: strong passwords from the platform CSPRNG, made on your machine.",
   "keywords": [
     "cli",
@@ -51,7 +50,7 @@
     "test": "c8 mocha"
   },
   "dependencies": {
-    "@sebastienrousseau/jspassgen": "0.0.20",
+    "@sebastienrousseau/jspassgen": "0.0.21",
     "commander": "^15.1.0"
   },
   "devDependencies": {

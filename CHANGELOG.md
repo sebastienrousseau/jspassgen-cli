@@ -15,7 +15,7 @@ version. Not published.
 
 - The `jspassgen` bin: `--version`, and `generate` for a strong password
   (`--length`, `--iteration`, `--separator`) from
-  `@sebastienrousseau/jspassgen` 0.0.20, pinned exactly.
+  `@sebastienrousseau/jspassgen` 0.0.21, pinned exactly.
 - Tests that run the bin, at 100% coverage, and a test that `bin/` and
   `src/` import no network module.
 - The repository standard: community files, REUSE licensing, the
