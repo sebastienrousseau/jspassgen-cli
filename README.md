@@ -155,7 +155,7 @@ and they first publish with the suite's first lockstep release.
 | Other password types | base64, memorable, diceware, quantum-resistant, honeyword, pronounceable, custom | Not available yet; in the jspassgen bin today |
 | Entropy and strength | Entropy report, strength analysis | Not available yet |
 | Presets, clipboard, interactive onboarding | The rest of jspassgen's `src/cli` | Not available yet; moves here in a later version |
-| Distribution | npm package, release archives, `SHA256SUMS` | Not available yet; no release workflow in this repository |
+| Distribution | npm package, release archives, `SHA256SUMS` | Not available yet; the first release, 0.0.22, publishes the npm package with `SHA256SUMS` |
 
 ---
 
