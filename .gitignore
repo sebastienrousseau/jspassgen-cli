@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: Apache-2.0 OR MIT
+# Dependencies and npm output
+node_modules/
+*.tgz
+npm-debug.log*
+# Coverage (c8)
+coverage/
+# Environment files
+.env
+.env.*
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+# bin/ holds the package's source bin, not build output; re-include it
+# against global ignore files that exclude bin/ directories.
+!/bin/
