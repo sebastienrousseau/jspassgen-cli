@@ -16,7 +16,7 @@
   <a href="https://github.com/sebastienrousseau/jspassgen-cli/blob/main/DEVELOPMENT.md"><img src="https://img.shields.io/badge/docs-development-blue?style=for-the-badge&labelColor=555555&logo=readthedocs" alt="Docs" height="28" /></a>
   <a href="https://scorecard.dev/viewer/?uri=github.com/sebastienrousseau/jspassgen-cli"><img src="https://img.shields.io/ossf-scorecard/github.com/sebastienrousseau/jspassgen-cli?style=for-the-badge&label=OpenSSF%20Scorecard&logo=openssf" alt="OpenSSF Scorecard" height="28" /></a>
   <a href="LICENSE-APACHE"><img src="https://img.shields.io/badge/license-Apache--2.0%20OR%20MIT-blue.svg?style=for-the-badge" alt="License: Apache-2.0 OR MIT" height="28" /></a>
-  <a href="#requirements"><img src="https://img.shields.io/badge/Node.js-22%2B-93450a.svg?style=for-the-badge&logo=node.js" alt="Node.js 22 or newer" height="28" /></a>
+  <a href="#requirements"><img src="https://img.shields.io/badge/Node.js-22.12%2B-93450a.svg?style=for-the-badge&logo=node.js" alt="Node.js 22.12 or newer" height="28" /></a>
 </p>
 
 <p align="center">
@@ -92,7 +92,8 @@ node bin/jspassgen.js --version
 
 ## Requirements
 
-- Node.js 22 or newer (`engines` in `package.json`).
+- Node.js 22.12 or newer (`engines` in `package.json`), the floor that
+  `commander` 15 declares.
 - CI runs the tests on Node.js 22 and 24 on Ubuntu 24.04. The code is
   plain ESM JavaScript with no native modules.
 - Run-time dependencies: `@sebastienrousseau/jspassgen`, pinned to
@@ -296,7 +297,7 @@ command and no API.
   their shape (alphabet, chunk count and length, separator) is.
 - The core version is pinned exactly, so a release of this package
   always runs the generator it was tested with.
-- The Node.js floor is 22 (`engines`). It is raised only in a new
+- The Node.js floor is 22.12 (`engines`). It is raised only in a new
   version, recorded in the changelog.
 
 ---
