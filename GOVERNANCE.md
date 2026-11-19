@@ -13,11 +13,11 @@ the core library, security and clarity over feature breadth.
 
 ## Roles
 
-| Role | Who | Responsibilities |
-| :--- | :--- | :--- |
-| **Maintainer** | Sebastien Rousseau (single maintainer) | Reviews and merges pull requests, cuts and signs releases, triages issues and security reports, sets direction, holds the repository's admin rights |
-| **Contributor** | Anyone with a merged pull request | Proposes changes with tests, reviews others' pull requests |
-| **User** | Everyone | Reports bugs, asks questions, requests features through issues |
+| Role            | Who                                    | Responsibilities                                                                                                                                    |
+| :-------------- | :------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Maintainer**  | Sebastien Rousseau (single maintainer) | Reviews and merges pull requests, cuts and signs releases, triages issues and security reports, sets direction, holds the repository's admin rights |
+| **Contributor** | Anyone with a merged pull request      | Proposes changes with tests, reviews others' pull requests                                                                                          |
+| **User**        | Everyone                               | Reports bugs, asks questions, requests features through issues                                                                                      |
 
 ## Decisions
 

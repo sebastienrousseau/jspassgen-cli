@@ -11,23 +11,23 @@ npm ci         # the locked dependencies (package-lock.json)
 
 ## Layout
 
-| Path | What it holds |
-| :--- | :--- |
-| `bin/jspassgen.js` | The bin: calls `run(process.argv)` |
-| `src/cli.js` | The commander program: `--version` and `generate`, integer parsing, error reporting |
-| `src/generate.js` | The one call into `@sebastienrousseau/jspassgen`: the core service with the Node.js CSPRNG adapter |
-| `test/` | mocha tests that run the bin as a child process, and the no-network check |
+| Path               | What it holds                                                                                                                     |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
+| `bin/jspassgen.js` | The bin: calls `run(process.argv)`                                                                                                |
+| `src/cli.js`       | The commander program: `--version` and `generate`, integer parsing, error reporting                                               |
+| `src/generate.js`  | The one call into `@sebastienrousseau/jspassgen`: the core service with the Node.js CSPRNG adapter                                |
+| `test/`            | mocha tests that run the bin as a child process, fast-check property tests of option parsing and output, and the no-network check |
 
 ## CI gates and their local commands
 
-| CI job | What it checks | Local command |
-| :--- | :--- | :--- |
-| `ci.yml` lint | eslint with the complexity rules, prettier, `npm audit` | `make lint format-check audit` |
-| `ci.yml` test (Node.js 22, 24) | The tests at 100% coverage | `make test` |
-| `codeql.yml` | CodeQL for JavaScript and for the workflows | (GitHub only) |
-| `docs-lint.yml` | markdownlint, the README template, codespell, REUSE, links | `scripts/readme-check.sh` and the tools named in the workflow |
-| `dco.yml` | `Signed-off-by:` on every commit | `git log --format=%B` |
-| `scorecard.yml` | OpenSSF Scorecard | (GitHub only) |
+| CI job                         | What it checks                                             | Local command                                                 |
+| :----------------------------- | :--------------------------------------------------------- | :------------------------------------------------------------ |
+| `ci.yml` lint                  | eslint with the complexity rules, prettier, `npm audit`    | `make lint format-check audit`                                |
+| `ci.yml` test (Node.js 22, 24) | The tests at 100% coverage                                 | `make test`                                                   |
+| `codeql.yml`                   | CodeQL for JavaScript and for the workflows                | (GitHub only)                                                 |
+| `docs-lint.yml`                | markdownlint, the README template, codespell, REUSE, links | `scripts/readme-check.sh` and the tools named in the workflow |
+| `dco.yml`                      | `Signed-off-by:` on every commit                           | `git log --format=%B`                                         |
+| `scorecard.yml`                | OpenSSF Scorecard                                          | (GitHub only)                                                 |
 
 `make check` runs `npm ci`, lint, the format check and the tests.
 

@@ -129,18 +129,18 @@ The JavaScript tools depend on the core and add no generation logic of
 their own; each SDK is a native port that is checked against the core's
 conformance kit as its generators land.
 
-| Component | Purpose | Use case |
-| :--- | :--- | :--- |
-| [`jspassgen`](https://github.com/sebastienrousseau/jspassgen) | Password and passphrase core, Node.js library, CLI, web UI and workers; source of the conformance kit | Programs that generate secrets |
-| **`jspassgen-cli`** | Command-line generator built on the core | Passwords in a terminal or a script |
-| [`jspassgen-mcp`](https://github.com/sebastienrousseau/jspassgen-mcp) | Local stdio MCP server | AI agents that need a generated secret |
-| [`jspassgen-lsp`](https://github.com/sebastienrousseau/jspassgen-lsp) | Language server for weak literal secrets | Editors checking configuration and `.env` files |
-| [`jspassgen-sdk-python`](https://github.com/sebastienrousseau/jspassgen-sdk-python) | Native port on the `secrets` module | Python programs |
-| [`jspassgen-sdk-rust`](https://github.com/sebastienrousseau/jspassgen-sdk-rust) | Native port on the OS CSPRNG | Rust programs |
-| [`jspassgen-sdk-java`](https://github.com/sebastienrousseau/jspassgen-sdk-java) | Native port on `SecureRandom` | JVM programs |
-| [`jspassgen-sdk-dotnet`](https://github.com/sebastienrousseau/jspassgen-sdk-dotnet) | Native port on `RandomNumberGenerator` | .NET programs |
-| [`jspassgen-sdk-cpp`](https://github.com/sebastienrousseau/jspassgen-sdk-cpp) | Native C++17 port on the OS CSPRNG | C++ programs |
-| [`jspassgen.github.io`](https://github.com/sebastienrousseau/jspassgen.github.io) | Source of [jspassgen.com](https://jspassgen.com) | Evaluating the suite |
+| Component                                                                           | Purpose                                                                                               | Use case                                        |
+| :---------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------- | :---------------------------------------------- |
+| [`jspassgen`](https://github.com/sebastienrousseau/jspassgen)                       | Password and passphrase core, Node.js library, CLI, web UI and workers; source of the conformance kit | Programs that generate secrets                  |
+| **`jspassgen-cli`**                                                                 | Command-line generator built on the core                                                              | Passwords in a terminal or a script             |
+| [`jspassgen-mcp`](https://github.com/sebastienrousseau/jspassgen-mcp)               | Local stdio MCP server                                                                                | AI agents that need a generated secret          |
+| [`jspassgen-lsp`](https://github.com/sebastienrousseau/jspassgen-lsp)               | Language server for weak literal secrets                                                              | Editors checking configuration and `.env` files |
+| [`jspassgen-sdk-python`](https://github.com/sebastienrousseau/jspassgen-sdk-python) | Native port on the `secrets` module                                                                   | Python programs                                 |
+| [`jspassgen-sdk-rust`](https://github.com/sebastienrousseau/jspassgen-sdk-rust)     | Native port on the OS CSPRNG                                                                          | Rust programs                                   |
+| [`jspassgen-sdk-java`](https://github.com/sebastienrousseau/jspassgen-sdk-java)     | Native port on `SecureRandom`                                                                         | JVM programs                                    |
+| [`jspassgen-sdk-dotnet`](https://github.com/sebastienrousseau/jspassgen-sdk-dotnet) | Native port on `RandomNumberGenerator`                                                                | .NET programs                                   |
+| [`jspassgen-sdk-cpp`](https://github.com/sebastienrousseau/jspassgen-sdk-cpp)       | Native C++17 port on the OS CSPRNG                                                                    | C++ programs                                    |
+| [`jspassgen.github.io`](https://github.com/sebastienrousseau/jspassgen.github.io)   | Source of [jspassgen.com](https://jspassgen.com)                                                      | Evaluating the suite                            |
 
 Every member ships at 0.0.22, the suite's first lockstep release: the
 core, CLI, MCP and LSP servers on npm, the Python, Rust, Java and .NET
@@ -152,14 +152,14 @@ each README's Capabilities at a glance says what works today.
 
 ## Capabilities at a glance
 
-| Area | Capability | Status |
-| :--- | :--- | :--- |
-| Version | `--version` | Available |
-| Generation | `generate`: strong password (base64 characters, chunks, separator) | Available |
-| Other password types | base64, memorable, diceware, quantum-resistant, honeyword, pronounceable, custom | Not available yet; in the jspassgen bin today |
-| Entropy and strength | Entropy report, strength analysis | Not available yet |
-| Presets, clipboard, interactive onboarding | The rest of jspassgen's `src/cli` | Not available yet; moves here in a later version |
-| Distribution | npm package, release archives, `SHA256SUMS` | Available from 0.0.22: the npm package, and the GitHub release with the tarball and `SHA256SUMS` |
+| Area                                       | Capability                                                                       | Status                                                                                           |
+| :----------------------------------------- | :------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------- |
+| Version                                    | `--version`                                                                      | Available                                                                                        |
+| Generation                                 | `generate`: strong password (base64 characters, chunks, separator)               | Available                                                                                        |
+| Other password types                       | base64, memorable, diceware, quantum-resistant, honeyword, pronounceable, custom | Not available yet; in the jspassgen bin today                                                    |
+| Entropy and strength                       | Entropy report, strength analysis                                                | Not available yet                                                                                |
+| Presets, clipboard, interactive onboarding | The rest of jspassgen's `src/cli`                                                | Not available yet; moves here in a later version                                                 |
+| Distribution                               | npm package, release archives, `SHA256SUMS`                                      | Available from 0.0.22: the npm package, and the GitHub release with the tarball and `SHA256SUMS` |
 
 ---
 
@@ -170,10 +170,10 @@ where it moves: when it ships, the `jspassgen` bin in the core package
 becomes a shim that names this package, and is removed one release later
 (ADR 0001).
 
-| Project | Password types | Published on npm | Generation code |
-| :--- | :---: | :---: | :---: |
-| **jspassgen-cli** | **Strong only, for now** | **Yes (0.0.22)** | **None; calls the core** |
-| `jspassgen` bin in `@sebastienrousseau/jspassgen` | All eight | Yes (0.0.22) | In the same package |
+| Project                                           |      Password types      | Published on npm |     Generation code      |
+| :------------------------------------------------ | :----------------------: | :--------------: | :----------------------: |
+| **jspassgen-cli**                                 | **Strong only, for now** | **Yes (0.0.22)** | **None; calls the core** |
+| `jspassgen` bin in `@sebastienrousseau/jspassgen` |        All eight         |   Yes (0.0.22)   |   In the same package    |
 
 ---
 
@@ -202,11 +202,11 @@ core's benchmarks live in
 
 `jspassgen generate` options:
 
-| Option | Default | Meaning |
-| :--- | :--- | :--- |
-| `-l, --length <n>` | 16 | Characters per chunk, 1 to 1024 |
-| `-i, --iteration <n>` | 4 | Number of chunks, at least 1 |
-| `-s, --separator <text>` | `-` | Text between chunks |
+| Option                   | Default | Meaning                         |
+| :----------------------- | :------ | :------------------------------ |
+| `-l, --length <n>`       | 16      | Characters per chunk, 1 to 1024 |
+| `-i, --iteration <n>`    | 4       | Number of chunks, at least 1    |
+| `-s, --separator <text>` | `-`     | Text between chunks             |
 
 The CLI reads no configuration file and no environment variable.
 
