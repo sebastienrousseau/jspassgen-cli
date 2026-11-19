@@ -45,8 +45,8 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "format": "prettier --write \"**/*.js\"",
-    "format:check": "prettier --check \"**/*.js\"",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "test": "c8 mocha"
   },
   "dependencies": {
