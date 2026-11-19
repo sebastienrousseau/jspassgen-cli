@@ -8,10 +8,10 @@ The latest release is `0.0.22`, the jspassgen suite's first lockstep
 version. While pre-`1.0`, the latest released `0.0.x` receives security
 fixes; older `0.0.x` versions do not.
 
-| Version | Status | Receives security fixes? |
-| :--- | :--- | :--- |
-| `0.0.22` | Latest release | Yes |
-| `main` | In development | Yes |
+| Version  | Status         | Receives security fixes? |
+| :------- | :------------- | :----------------------- |
+| `0.0.22` | Latest release | Yes                      |
+| `main`   | In development | Yes                      |
 
 ## Reporting a vulnerability
 
@@ -42,13 +42,13 @@ and no random source of its own.
 
 ### Threat model
 
-| Surface | How it is handled |
-| :--- | :--- |
-| **Randomness** | The library's Node.js adapter: `crypto.randomInt` and `crypto.randomBytes`. Never `Math.random()`. |
-| **Network** | None. No network call and no telemetry; a test fails if `bin/` or `src/` imports a network module. |
-| **Secrets at rest** | None written. The password goes to standard output only; no file, log or clipboard. |
-| **Secrets in errors** | Error messages are the library's validation messages about the options, never a generated value. |
-| **Dependency drift** | The core library is pinned to one exact version; `package-lock.json` pins the rest. |
+| Surface               | How it is handled                                                                                  |
+| :-------------------- | :------------------------------------------------------------------------------------------------- |
+| **Randomness**        | The library's Node.js adapter: `crypto.randomInt` and `crypto.randomBytes`. Never `Math.random()`. |
+| **Network**           | None. No network call and no telemetry; a test fails if `bin/` or `src/` imports a network module. |
+| **Secrets at rest**   | None written. The password goes to standard output only; no file, log or clipboard.                |
+| **Secrets in errors** | Error messages are the library's validation messages about the options, never a generated value.   |
+| **Dependency drift**  | The core library is pinned to one exact version; `package-lock.json` pins the rest.                |
 
 ### Dependency audit
 
