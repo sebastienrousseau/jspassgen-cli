@@ -11,12 +11,12 @@ npm ci         # the locked dependencies (package-lock.json)
 
 ## Layout
 
-| Path               | What it holds                                                                                      |
-| :----------------- | :------------------------------------------------------------------------------------------------- |
-| `bin/jspassgen.js` | The bin: calls `run(process.argv)`                                                                 |
-| `src/cli.js`       | The commander program: `--version` and `generate`, integer parsing, error reporting                |
-| `src/generate.js`  | The one call into `@sebastienrousseau/jspassgen`: the core service with the Node.js CSPRNG adapter |
-| `test/`            | mocha tests that run the bin as a child process, and the no-network check                          |
+| Path               | What it holds                                                                                                                     |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
+| `bin/jspassgen.js` | The bin: calls `run(process.argv)`                                                                                                |
+| `src/cli.js`       | The commander program: `--version` and `generate`, integer parsing, error reporting                                               |
+| `src/generate.js`  | The one call into `@sebastienrousseau/jspassgen`: the core service with the Node.js CSPRNG adapter                                |
+| `test/`            | mocha tests that run the bin as a child process, fast-check property tests of option parsing and output, and the no-network check |
 
 ## CI gates and their local commands
 
