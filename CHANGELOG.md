@@ -25,6 +25,9 @@ advance in `0.0.1` steps in lockstep with the jspassgen suite.
 
 - Seven Markdown, YAML and JSONC files that did not match the
   repository's prettier style are formatted.
+- The release workflow's notes list the SHA-256 of every asset attached
+  to the release, `SHA256SUMS` included; 0.0.22's notes listed only the
+  tarball.
 
 ## [0.0.22] - 2026-11-18
 
