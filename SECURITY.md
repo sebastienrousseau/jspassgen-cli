@@ -53,7 +53,8 @@ and no random source of its own.
 ### Dependency audit
 
 `make audit` runs `npm audit` over the locked dependencies, development
-tools included; CI runs it on every push. A dependency with a published
+tools included; CI runs it on every push to `main` and `feat/*` and on
+every pull request into `main`. A dependency with a published
 advisory is constrained in `package.json` `overrides` so no affected
 version resolves. Dependabot proposes weekly updates of npm packages and
 of the pinned workflow actions.

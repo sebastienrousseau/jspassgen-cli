@@ -28,6 +28,10 @@ advance in `0.0.1` steps in lockstep with the jspassgen suite.
 - The release workflow's notes list the SHA-256 of every asset attached
   to the release, `SHA256SUMS` included; 0.0.22's notes listed only the
   tarball.
+- AGENTS.md says the package is on npm since 0.0.22 instead of "once
+  released", and links ADR 0001 on the core's `main` branch.
+- SECURITY.md names the pushes and pull requests that run the audit,
+  instead of "every push".
 
 ## [0.0.22] - 2026-11-18
 

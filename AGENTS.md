@@ -3,10 +3,10 @@
 # AGENTS.md
 
 `jspassgen-cli` is the command line of the jspassgen suite, published
-(once released) as `@sebastienrousseau/jspassgen-cli` with the bin
-`jspassgen`. It exists so the CLI can move out of the core repository
-and release on its own track, in lockstep with the suite
-([ADR 0001](https://github.com/sebastienrousseau/jspassgen/blob/master/docs/adr/0001-ecosystem-lockstep.md)).
+on npm as `@sebastienrousseau/jspassgen-cli` (first release 0.0.22) with
+the bin `jspassgen`. It exists so the CLI can move out of the core
+repository and release on its own track, in lockstep with the suite
+([ADR 0001](https://github.com/sebastienrousseau/jspassgen/blob/main/docs/adr/0001-ecosystem-lockstep.md)).
 Its value is that a terminal user gets exactly the core library's
 generator, with no generation logic of its own to drift. Read
 [CONTRIBUTING.md](CONTRIBUTING.md) and [DEVELOPMENT.md](DEVELOPMENT.md)
