@@ -10,12 +10,12 @@
 
 ## Supported versions
 
-The latest release, `0.0.22`, and `main` are supported; older `0.0.x`
+The latest release, `0.0.23`, and `main` are supported; older `0.0.x`
 versions are not. The CLI follows the jspassgen suite's version.
 
 | Version  | Status         | Supported |
 | :------- | :------------- | :-------- |
-| `0.0.22` | Latest release | Yes       |
+| `0.0.23` | Latest release | Yes       |
 | `main`   | In development | Yes       |
 
 ## Questions and bugs
