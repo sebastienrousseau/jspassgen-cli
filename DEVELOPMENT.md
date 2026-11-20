@@ -5,7 +5,7 @@
 ## Setup
 
 ```sh
-mise install   # Node.js 24 (mise.toml); the floor is Node.js 22
+mise install   # Node.js 24 (mise.toml); the floor is Node.js 22.12
 npm ci         # the locked dependencies (package-lock.json)
 ```
 

@@ -20,11 +20,21 @@ advance in `0.0.1` steps in lockstep with the jspassgen suite.
 
 - The prettier gate (`npm run format:check`, `make format-check`) now
   checks every file type prettier supports, not only JavaScript.
+- The Node.js floor is 22.12 (`engines` in `package.json`), the floor
+  `commander` 15 declares; 22.0 to 22.11 are outside that dependency's
+  supported range.
 
 ### Fixed
 
 - Seven Markdown, YAML and JSONC files that did not match the
   repository's prettier style are formatted.
+- The release workflow's notes list the SHA-256 of every asset attached
+  to the release, `SHA256SUMS` included; 0.0.22's notes listed only the
+  tarball.
+- AGENTS.md says the package is on npm since 0.0.22 instead of "once
+  released", and links ADR 0001 on the core's `main` branch.
+- SECURITY.md names the pushes and pull requests that run the audit,
+  instead of "every push".
 
 ## [0.0.22] - 2026-11-18
 
