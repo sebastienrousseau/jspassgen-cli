@@ -50,7 +50,7 @@
     "test": "c8 mocha"
   },
   "dependencies": {
-    "@sebastienrousseau/jspassgen": "0.0.22",
+    "@sebastienrousseau/jspassgen": "0.0.23",
     "commander": "^15.1.0"
   },
   "devDependencies": {

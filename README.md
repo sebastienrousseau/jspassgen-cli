@@ -97,7 +97,7 @@ node bin/jspassgen.js --version
 - CI runs the tests on Node.js 22 and 24 on Ubuntu 24.04. The code is
   plain ESM JavaScript with no native modules.
 - Run-time dependencies: `@sebastienrousseau/jspassgen`, pinned to
-  exactly 0.0.22, the suite version, and `commander`.
+  exactly 0.0.23, the suite version, and `commander`.
 
 ---
 
