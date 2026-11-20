@@ -20,6 +20,8 @@ advance in `0.0.1` steps in lockstep with the jspassgen suite.
 
 - The prettier gate (`npm run format:check`, `make format-check`) now
   checks every file type prettier supports, not only JavaScript.
+- `.github/CODEOWNERS` names the maintainer as owner of every file, so
+  the `main` ruleset can require a code-owner review.
 - The Node.js floor is 22.12 (`engines` in `package.json`), the floor
   `commander` 15 declares; 22.0 to 22.11 are outside that dependency's
   supported range.
