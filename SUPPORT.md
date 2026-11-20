@@ -16,6 +16,7 @@ versions are not. The CLI follows the jspassgen suite's version.
 | Version  | Status         | Supported |
 | :------- | :------------- | :-------- |
 | `0.0.23` | Latest release | Yes       |
+| `0.0.22` | Superseded     | No        |
 | `main`   | In development | Yes       |
 
 ## Questions and bugs
