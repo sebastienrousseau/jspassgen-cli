@@ -97,7 +97,7 @@ node bin/jspassgen.js --version
 - CI runs the tests on Node.js 22 and 24 on Ubuntu 24.04. The code is
   plain ESM JavaScript with no native modules.
 - Run-time dependencies: `@sebastienrousseau/jspassgen`, pinned to
-  exactly 0.0.23, the suite version, and `commander`.
+  exactly 0.0.24, the suite version, and `commander`.
 
 ---
 
@@ -143,7 +143,7 @@ conformance kit as its generators land.
 | [`jspassgen-sdk-cpp`](https://github.com/sebastienrousseau/jspassgen-sdk-cpp)       | Native C++17 port on the OS CSPRNG                                                                    | C++ programs                                    |
 | [`jspassgen.github.io`](https://github.com/sebastienrousseau/jspassgen.github.io)   | Source of [jspassgen.com](https://jspassgen.com)                                                      | Evaluating the suite                            |
 
-Every member ships at 0.0.23, the suite's second lockstep release: the
+Every member ships at 0.0.24, the suite's third lockstep release: the
 core, CLI, MCP and LSP servers on npm, the Python, Rust, Java and .NET
 SDKs on PyPI, crates.io, Maven Central and NuGet, and the C++ SDK and
 the site as GitHub releases. The table gives each member's purpose, and
