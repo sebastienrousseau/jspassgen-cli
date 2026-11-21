@@ -4,13 +4,14 @@
 
 ## Supported versions
 
-The latest release is `0.0.23`, the jspassgen suite's second lockstep
+The latest release is `0.0.24`, the jspassgen suite's third lockstep
 version. While pre-`1.0`, the latest released `0.0.x` receives security
 fixes; older `0.0.x` versions do not.
 
 | Version  | Status         | Receives security fixes? |
 | :------- | :------------- | :----------------------- |
-| `0.0.23` | Latest release | Yes                      |
+| `0.0.24` | Latest release | Yes                      |
+| `0.0.23` | Superseded     | No                       |
 | `0.0.22` | Superseded     | No                       |
 | `main`   | In development | Yes                      |
 
